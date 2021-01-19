@@ -1,3 +1,3 @@
 # xmlparsers
 
-This repo is for learning puposes
+This repo is for training puposes
