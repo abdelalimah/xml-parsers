@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<documents>
+    <document id="11">
+        <title>POO en java</title>
+        <price>1000</price>
+        <authors>
+            <author id="7">
+                <name>James gosting </name>
+                <year-born>1955</year-born>
+                <country>Canada</country>
+            </author>
+        </authors>
+    </document>
+    <document id="10">
+        <title>POO en C++</title>
+        <price>900</price>
+        <authors>
+            <author id="8">
+                <name>XXX </name>
+                <year-born>1957</year-born>
+                <country>USA</country>
+            </author>
+        </authors>
+    </document>
+    <document id="9">
+        <title> java</title>
+        <price>1200</price>
+        <authors>
+            <author id="7">
+                <name>James gosting </name>
+                <year-born>1958</year-born>
+                <country>Canada</country>
+            </author>
+            <author id="10">
+                <name>Erich gamma </name>
+                <year-born>1968</year-born>
+                <country>SWISSE</country>
+            </author>
+        </authors>
+    </document>
+</documents>
