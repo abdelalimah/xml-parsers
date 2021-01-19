@@ -28,7 +28,7 @@ public class XMLNode {
 
             node = doc.getFirstChild();
 
-            while(node.getNodeType() != Node.ELEMENT_NODE){
+            while(!isElementNode(node)){
                 node = node.getNextSibling();
             }
         }catch(Exception e){
