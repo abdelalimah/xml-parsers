@@ -43,6 +43,7 @@ public class MenuHandler extends DefaultHandler {
 
                 menuBar = new JMenuBar();
                 iconsFolder = attributes.getValue("icons-folder");
+                System.out.println(iconsFolder);
                 basePackage = attributes.getValue("base-package");
 
             }
@@ -58,7 +59,7 @@ public class MenuHandler extends DefaultHandler {
 
                 String itemName = attributes.getValue("name");
                 String iconFileName = attributes.getValue("icon");
-                ImageIcon icon = new ImageIcon(iconsFolder + iconFileName);
+                ImageIcon icon = new ImageIcon(iconsFolder +"/"+ iconFileName);
 
                 menuItem = new JMenuItem(itemName, icon);
 
