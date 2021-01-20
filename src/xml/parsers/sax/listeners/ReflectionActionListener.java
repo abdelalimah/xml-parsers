@@ -11,11 +11,15 @@ public class ReflectionActionListener implements ActionListener {
 
     public ReflectionActionListener(String className , String methodName){
         try{
+
             Class<?> cls = Class.forName(className);
             actionObject = cls.getDeclaredConstructor().newInstance();
             method = cls.getDeclaredMethod(methodName);
+
         }catch(Exception e){
+
             System.out.println(e.getMessage());
+
         }
     }
 
@@ -26,7 +30,9 @@ public class ReflectionActionListener implements ActionListener {
             method.invoke(actionObject);
 
         }catch(Exception exp){
+
             System.out.println(exp.getMessage());
+
         }
     }
 }

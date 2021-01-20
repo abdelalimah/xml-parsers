@@ -17,12 +17,13 @@ public class MenuHandler extends DefaultHandler {
     private String basePackage;
     private String actionClassName;
 
-    public MenuHandler(){
-    }
+    public MenuHandler(){ }
 
     @Override
     public void startDocument() throws SAXException {
+
         System.out.println(">> Start document");
+
     }
 
     @Override
@@ -40,6 +41,7 @@ public class MenuHandler extends DefaultHandler {
                 basePackage = attributes.getValue("base-package");
 
             }
+
             case "menu" -> {
 
                 String menuName = attributes.getValue("name");
@@ -72,36 +74,43 @@ public class MenuHandler extends DefaultHandler {
 
     @Override
     public void characters(char[] ch, int start, int length) throws SAXException {
+
         String comment = new String(ch,start,length);
+
         if(menuItem != null){
             menuItem.setToolTipText(comment);
         }
+
     }
 
     @Override
-    public void error(SAXParseException e) throws SAXException {
-    }
+    public void error(SAXParseException e) throws SAXException { }
 
     @Override
-    public void fatalError(SAXParseException e) throws SAXException {
-    }
+    public void fatalError(SAXParseException e) throws SAXException { }
 
     @Override
     public void endElement(String uri, String localName, String qName) throws SAXException {
+
         if(qName.equals("item")){
             /*
             * null here is preventing the menuItem from being set to the empty characters between item elements
             * */
             menuItem = null;
         }
+
     }
 
     @Override
     public void endDocument() throws SAXException {
+
         System.out.println(">> End document");
+
     }
 
     public JMenuBar getMenuBar() {
+
         return menuBar;
+
     }
 }
