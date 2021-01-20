@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<menu-bar icons-folder="resources/icons" base-package="xml.parsers.sax.actions">
+    <menu name="File" action-class="FileAction">
+        <item name="New" icon="new.gif" action="newFile">Nouveau fichier</item>
+        <item name="Open" icon="open.gif" action="open">Ouvrir un fichier</item>
+        <item name="Save" icon="save.gif" action="save">Enregistrer le fichier</item>
+        <item name="Save as" action="saveAs">Enregistrer sous</item>
+        <separator/>
+        <item name="Exit" action="exit">Quitter l'application</item>
+    </menu>
+
+    <menu name="Edit" action-class="EditAction">
+        <item name="Copy" icon="copy.gif" action="copy">Copier</item>
+        <item name="Cut" icon="cut.gif" action="cut">Couper</item>
+        <item name="Past" icon="past.gif" action="past">Coller</item>
+
+    </menu>
+</menu-bar>

@@ -21,7 +21,7 @@ public class XMLNode {
     }
 
     public XMLNode(String source){
-        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newDefaultInstance();
         try{
             DocumentBuilder builder = factory.newDocumentBuilder();
             Document doc = builder.parse(source);
