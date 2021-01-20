@@ -10,7 +10,7 @@ public class MenuParser {
     public MenuParser(String source){
         SAXParserFactory factory = SAXParserFactory.newDefaultInstance();
         /*
-        * If our parser was following some validation rules like dtd or xsd we would have called the following method and set it to true
+        * if our parser was following some validation rules like dtd or xsd we would have called the following method and set it to true
         * factory.setValidating();
         * */
 
