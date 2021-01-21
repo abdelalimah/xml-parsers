@@ -80,7 +80,11 @@ public class XMLNode {
     }
 
     public String textValue(){
-         return node.getFirstChild().getNodeValue();
+        if(node.getNodeType() == Node.ELEMENT_NODE){
+            return node.getFirstChild().getNodeValue();
+        }
+
+        return node.getNodeValue();
     }
 
     public boolean isElementNode(Node node){
