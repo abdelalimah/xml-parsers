@@ -26,7 +26,6 @@ public class ReflectionActionListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         try{
-
             method.invoke(actionObject);
 
         }catch(Exception exp){

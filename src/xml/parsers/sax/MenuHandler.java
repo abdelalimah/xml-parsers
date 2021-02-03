@@ -57,6 +57,7 @@ public class MenuHandler extends DefaultHandler {
                 ImageIcon icon = new ImageIcon(iconsFolder +"/"+ iconFileName);
 
                 menuItem = new JMenuItem(itemName, icon);
+                menuItem.setName(itemName);
 
                 //extracting the full class path
                 String qualifiedClassName = basePackage+"."+actionClassName;

@@ -1,6 +1,7 @@
 package xml.parsers.sax;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class MenuParserFrame extends JFrame {
 
@@ -11,6 +12,22 @@ public class MenuParserFrame extends JFrame {
         MenuParser parser = new MenuParser("resources/menu-bar.xml");
         JMenuBar menu = parser.getMenuBar();
         setJMenuBar(menu);
+
+        JTextArea textArea  = new JTextArea();
+        textArea.setBackground(Color.white);
+
+        JTextArea textArea2  = new JTextArea();
+        textArea2.setBackground(Color.blue);
+
+        textArea.setName("editor");
+        textArea2.setName("editor2");
+
+        setContentPane(this.getContentPane());
+
+        this.add(textArea);
+        this.add(textArea2);
+
+        ComponentFinder.setContainer(this.getContentPane());
 
         setSize(600,300);
         setDefaultCloseOperation(EXIT_ON_CLOSE);

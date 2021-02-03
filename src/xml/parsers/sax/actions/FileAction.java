@@ -1,5 +1,11 @@
 package xml.parsers.sax.actions;
 
+import xml.parsers.sax.ComponentFinder;
+
+import javax.swing.*;
+import java.awt.*;
+import java.io.*;
+
 public class FileAction {
 
     public FileAction(){ }
@@ -13,13 +19,16 @@ public class FileAction {
     public void open(){
 
         System.out.println("Open File");
+        Component component = ComponentFinder.getComponent("menuBar");
+        System.out.println(component);
 
     }
 
     public void save(){
 
-        System.out.println("Save File");
+        Component component = ComponentFinder.getComponent("editor");
 
+        String content = ((JTextArea)component).getText();
     }
 
     public void saveAs(){
