@@ -22,12 +22,14 @@ public class MenuParserFrame extends JFrame {
         textArea.setName("editor");
         textArea2.setName("editor2");
 
+        this.getContentPane().setLayout(new GridLayout(3,3));
+
         setContentPane(this.getContentPane());
 
         this.add(textArea);
         this.add(textArea2);
 
-        ComponentFinder.setContainer(this.getContentPane());
+        ComponentFinder.setContainer(this.getJMenuBar());
 
         setSize(600,300);
         setDefaultCloseOperation(EXIT_ON_CLOSE);

@@ -1,22 +1,45 @@
 package xml.parsers.dom;
 
-import org.w3c.dom.NodeList;
+import org.w3c.dom.Element;
 import xml.parsers.models.Author;
 import xml.parsers.models.Document;
 
 import java.util.Vector;
 
 /*
-* The documentParser class is responsible of handling all operations to be performed on a specific xml **document**
-* */
+ * The documentParser class is responsible of handling all operations to be performed on a specific xml **document**
+ * */
 public class DocumentParser {
 
     private final Vector<Document> documents;
 
-    public DocumentParser(String source){
+    public DocumentParser(String source) {
         documents = new Vector<>();
-        XMLNode root = new XMLNode(source);
+
+        DocumentHandler documentHandler = new DocumentHandler(source);
+        Element abdel = documentHandler.createDocumentElement(
+                new Document(200, "blah", 20.10, new Author[]{new Author(1, "Abdelali", "Morocco", "2000")})
+        );
+
+        Element ihsane = documentHandler.createDocumentElement(
+                new Document(129, "blah", 0.4, new Author[]{new Author(1, "Ihsane", "Brazil", "2001")})
+        );
+
+        Element featuring = documentHandler.createDocumentElement(
+                new Document(129, "blah", 0.4, new Author[]{new Author(1, "Ihsane", "Brazil", "2001"), new Author(1, "Ihsane", "Brazil", "2001")})
+        );
+
+        XMLNode root = new XMLNode(documentHandler);
+
+        root.appendChild(abdel);
+        root.appendChild(ihsane);
+        root.appendChild(featuring);
+
+        DocumentTransformer documentTransformer = new DocumentTransformer();
+        documentTransformer.transform(documentHandler.getDoc());
+
         XMLNode[] docs = root.extractChildren();
+
         for (XMLNode doc : docs) {
 
             Vector<Author> authorsGroup = new Vector<>();
@@ -43,7 +66,8 @@ public class DocumentParser {
         }
     }
 
-    public Document[] getDocuments(){
+
+    public Document[] getDocuments() {
         Document[] t = new Document[documents.size()];
         return documents.toArray(t);
     }

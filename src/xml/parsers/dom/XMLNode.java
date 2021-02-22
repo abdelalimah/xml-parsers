@@ -1,9 +1,6 @@
 package xml.parsers.dom;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.NamedNodeMap;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
+import org.w3c.dom.*;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -20,21 +17,18 @@ public class XMLNode {
         node = source;
     }
 
-    public XMLNode(String source){
-        DocumentBuilderFactory factory = DocumentBuilderFactory.newDefaultInstance();
-        try{
-            DocumentBuilder builder = factory.newDocumentBuilder();
-            Document doc = builder.parse(source);
+    public XMLNode(DocumentHandler documentHandler){
 
-            node = doc.getFirstChild();
+        Document doc = documentHandler.getDoc();
 
-            while(!isElementNode(node)){
-                node = node.getNextSibling();
-            }
-        }catch(Exception e){
-            System.out.println(e.getMessage());
+        node = doc.getFirstChild();
+
+        while(!isElementNode(node)){
+            node = node.getNextSibling();
         }
+
     }
+
 
     public XMLNode[] extractChildren(){
         NodeList nodeList = node.getChildNodes();
@@ -44,7 +38,6 @@ public class XMLNode {
             Node item = nodeList.item(i);
             if(isElementNode(item)) v.add(new XMLNode(item));
         }
-
         XMLNode[] t = new XMLNode[v.size()];
         return v.toArray(t);
     }
@@ -77,6 +70,10 @@ public class XMLNode {
             System.out.println(e.getMessage());
             return -1;
         }
+    }
+
+    public void appendChild(Element childNode){
+        node.appendChild(childNode);
     }
 
     public String textValue(){

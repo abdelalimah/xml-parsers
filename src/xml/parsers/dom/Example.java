@@ -8,8 +8,11 @@ public class Example {
     public Example(){
 
         DocumentParser parser = new DocumentParser("resources/documents.xml");
+
         Document[] docs = parser.getDocuments();
         for (int i = 0; i < docs.length; i++) {
+
+
             System.out.println("------- Document "+ docs[i].getId() +" -------");
             System.out.println("Title : "+docs[i].getTitle());
             System.out.println("Price : "+docs[i].getPrice());

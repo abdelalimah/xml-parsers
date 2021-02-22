@@ -10,15 +10,12 @@ public class ComponentFinder {
         container = c;
     }
 
-    public static Component getComponent(String name){
-        for (Component c:
-             container.getComponents()) {
-            System.out.println(c);
-            if(name.equals(c.getName())) {
-                return c;
-            };
-        }
-        return null;
+    public static Component getComponent(int index){
+
+        return container.getComponent(index);
+
     }
+
+
 
 }
